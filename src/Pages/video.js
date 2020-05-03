@@ -1,4 +1,3 @@
-// 这个页面就是二级导航的编写，这个的编写也是课程的重点。
 import React from "react";
 import { Route, Link } from "react-router-dom";
 
