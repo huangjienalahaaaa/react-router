@@ -1,13 +1,29 @@
-import React, { Component } from 'react';
+// 这个页面就是二级导航的编写，这个的编写也是课程的重点。
+import React from "react";
+import { Route, Link } from "react-router-dom";
 
-class Video extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
-    render() {
-        return (<h2>我是 Video 页面</h2>);
-    }
+import Reactpage from './video/ReactPage'
+import Vue from './video/Vue'
+import Flutter from './video/Flutter'
+
+
+function Video() {
+    return (
+        <div>
+            <div className="topNav">
+                <ul>
+                    <li><Link to="/video/reactpage">React教程</Link></li>
+                    <li><Link to="/video/vue">Vue教程</Link></li>
+                    <li><Link to="/video/flutter">Flutter教程</Link></li>
+                </ul>
+            </div>
+            <div className="videoContent">
+                <div><h3>视频教程</h3></div>
+                <Route path="/video/reactpage/" component={Reactpage} />
+                <Route path="/video/vue/" component={Vue} />
+                <Route path="/video/flutter/" component={Flutter} />
+            </div>
+        </div>
+    )
 }
-
 export default Video;
