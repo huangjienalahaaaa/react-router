@@ -1,22 +1,27 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import Index from './Pages/Index'
-import List from './Pages/List'
-// 引入Home组件
-import Home from './Pages/Home'
+
+import './index.css'
 
 function AppRouter() {
     return (
         <Router>
-            <ul>
+            <div className="mainDiv">
+                <div className="leftNav">
+                    <h3>一级导航</h3>
+                    <ul>
+                        <li> <Link to="/">博客首页</Link> </li>
+                        <li><Link to="">视频教程</Link> </li>
+                        <li><Link to="">职场技能</Link> </li>
+                    </ul>
+                </div>
 
-                <li> <Link to="/">首页</Link> </li>
-                <li><Link to="/list/123">列表</Link> </li>
-            </ul>
-            <Route path="/" exact component={Index} />
-            <Route path="/list/:id" component={List} />
-            {/* 定义Home组件跳转规则 */}
-            <Route path="/home/" component={Home} />
+                <div className="rightMain">
+                    <Route path="/" exact component={Index} />
+                </div>
+            </div>
         </Router>
     );
 }
